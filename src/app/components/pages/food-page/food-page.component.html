@@ -1,22 +1,22 @@
-<div class="container">
-    <img [src]="food.imageUrl" [alt]="food.name"/>
+<div  class="container">
+    <img [src]="food.image" [alt]="food.nom"/>
   
     <div class="details">
       <div class="header">
         <span class="name">
-          {{food.name}}
+          {{food.nom}}
         </span>
         <span class="favorite {{food.favorite? '': 'not'}}">❤</span>
       </div>
       <div class="origins">
-        <span *ngFor="let origin of food.ingredient">
+        <span *ngFor="let origin of food.ingredients">
           {{origin}}
         </span>
       </div>
   
       <div class="cook-time">
         <span>
-          Time to cook about <strong>{{food.preparation}}</strong> minutes
+          Time to cook about <strong>{{food.instructions}}</strong> minutes
         </span>
       </div>
 
