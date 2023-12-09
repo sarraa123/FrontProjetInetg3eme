@@ -83,14 +83,14 @@ a span{
 
 .glow-gourmet-image {
     width: 100%;
-    max-height: 12cm;
+    max-height: 9cm;
     object-fit: cover;
     filter: brightness(60%); /* Ajustez la valeur pour l'effet de sombre */
 }
 
 .glow-gourmet-title {
     position: absolute;
-    top: 30%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     color: white;
