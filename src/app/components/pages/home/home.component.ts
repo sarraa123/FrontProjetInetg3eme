@@ -22,9 +22,9 @@ export class HomeComponent implements OnInit {
 
     foodObservable.subscribe((data:any)=>{
       console.log('Server Foods:', data);
-      this.foods =data.recettes;
+      this.foods =data.recettes || data;
 
-      console.log('Food IDs:', this.foods.map(food => food.id));
+      console.log('Food IDs:', this.foods.map(food => food._id));
     })
     })
  

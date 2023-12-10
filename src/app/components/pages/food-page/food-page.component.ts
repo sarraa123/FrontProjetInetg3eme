@@ -17,7 +17,11 @@ constructor(activatedRoute:ActivatedRoute, foodService:FoodService){
     console.log('Food ID:', foodId);
     if(foodId)
     foodService.getFoodById(foodId).subscribe(serverFood =>{
-       this.food=serverFood;
+       this.food=serverFood.recette || serverFood;
+       console.log('Food details:', this.food);
+      },
+      error => {
+        console.error('Error fetching food details:', error);
     });
   })
 }

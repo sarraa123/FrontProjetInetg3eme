@@ -11,6 +11,7 @@ import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FooterComponent } from './components/partials/footer/footer.component';
+import { NotFoundComponent } from './components/partials/not-found/not-found.component';
 
 
 
@@ -24,6 +25,7 @@ import { FooterComponent } from './components/partials/footer/footer.component';
     LoginComponent,
     SignupComponent,
     FooterComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,
