@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { FavorisService } from 'src/app/services/favoris.service';
 import { FoodService } from 'src/app/services/food.service';
 import { Food } from 'src/app/shared/models/Food';
+import { comment as FoodComment } from 'src/app/shared/models/comment'; // Rename the imported Comment
 
 @Component({
   selector: 'app-food-page',
@@ -11,7 +11,7 @@ import { Food } from 'src/app/shared/models/Food';
 })
 export class FoodPageComponent {
   food!:Food;
-constructor(activatedRoute:ActivatedRoute, foodService:FoodService,private favorisService: FavorisService){
+constructor(activatedRoute:ActivatedRoute, foodService:FoodService){
   activatedRoute.params.subscribe((params) => {
     console.log('Params:', params);
     const foodId = params['id'];
@@ -29,12 +29,5 @@ constructor(activatedRoute:ActivatedRoute, foodService:FoodService,private favor
 
 ngOnInit(): void {
 
-}
-addFavorite() {
-  this.favorisService.toggleFavorite(this.food);
-}
-
-isFavorite(): boolean {
-  return this.favorisService.getFavorites().some(fav => fav._id === this.food._id);
 }
 }

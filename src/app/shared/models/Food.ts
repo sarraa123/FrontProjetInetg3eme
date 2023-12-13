@@ -1,3 +1,5 @@
+import { comment } from "./comment";
+
 export class Food {
     _id!: string;
     nom!: string;
@@ -5,6 +7,8 @@ export class Food {
     instructions!: string;
     favorite!: boolean;
     image!: string;
-    recette?: any; // Add this property to match the server response
+    recette?: any; 
+    comments?: comment[];
   }
   
+ 
