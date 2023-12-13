@@ -9,10 +9,14 @@ import { Observable } from 'rxjs';
 })
 export class FoodService {
   currentUserValue: any;
-
+  private url="http://localhost:3000/api/recette"
   constructor(private http: HttpClient) { }
   getAll(): Observable<Food[]> {
     return this.http.get<Food[]>('http://localhost:3000/api/recette');
+  }
+
+  getAllByUserId(userId: string): Observable<Food[]> {
+    return this.http.get<Food[]>(`http://localhost:3000/api/recette/user/${userId}`);
   }
 
   getAllFoodsBySearchTerm(searchTerm: string): Observable<Food[]> {
@@ -31,4 +35,12 @@ export class FoodService {
     //PUT
     return this.http.put<Food>(`http://localhost:3000/api/recette/${food._id}`, food);
   }
+  UpdateRecette(foodId: string,addrecetteRequest:Food) : Observable<Food>{
+    return this.http.put<Food>(`${this.url}/${foodId}`, addrecetteRequest);
+  }
+  AddRecette(addrecetteRequest:Food){
+    
+    return this.http.post<Food>(`${this.url}`,addrecetteRequest);
+  } 
+
 }

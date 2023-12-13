@@ -1,0 +1,22 @@
+
+<app-search></app-search>
+<app-not-found
+  [visible]="!foods || !foods.length"
+  resetLinkText="Reset Search"
+></app-not-found>
+<ul>
+    <li *ngFor="let food of foods">
+      <div class="content">
+        <a [routerLink]="['/DetailRecette', food._id]">
+          <img [src]="food.image" [alt]="food.nom" />
+        </a>
+   
+        <div class="details">
+          <button class="favorite" title="Add to Favoris" (click)="addFavorite(food)">
+            <i [ngClass]="{'fa-regular ': !isFavorite(food), 'fa-solid': isFavorite(food), 'fa-heart': true, 'not': !isFavorite(food)}"></i>
+        </button>
+          <div class="name">{{food.nom}}</div>
+        </div>
+      </div>
+    </li>
+  </ul>

@@ -57,4 +57,15 @@ export class UserService {
     return this.http.get<user>(`http://localhost:3000/api/user/${user._id}`);
   }
 
+  private loggedInUserId: string | null = null;
+
+  // Méthode pour définir l'ID de l'utilisateur connecté
+  setLoggedInUserId(userId: string): void {
+    this.loggedInUserId = userId;
+  }
+
+  // Méthode pour récupérer l'ID de l'utilisateur connecté
+  getLoggedInUserId(): string | null {
+    return this.loggedInUserId;
+  }
 }

@@ -6,7 +6,7 @@ export class Food {
     ingredients!: string[];
     instructions!: string;
     favorite!: boolean;
-    image!: string;
+    image!: File;
     recette?: any; 
     comments?: comment[];
   }
