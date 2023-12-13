@@ -1,0 +1,29 @@
+<div class="container"  id="box">
+    <h1 style="text-align: center;">Publier  une Recette </h1>
+<form [formGroup]="addrecForm" (ngSubmit)="addrecette()">
+    <div class="row">
+        <div class="col-md-6" style="padding-left: 70px;">
+
+            <label>Nom</label><br/>
+           <input type="text" formControlName="nom" [(ngModel)]="addrecetteRequest.nom">
+            
+           <br/><label>Ingrédients</label><br/>
+           <input type="text" formControlName="ingredients" [(ngModel)]="addrecetteRequest.ingredients">
+
+           <br/><label>Instructions</label><br/>
+           <input type="text" formControlName="instructions" [(ngModel)]="addrecetteRequest.instructions">
+
+
+           <br/><label>Image</label><br/>
+
+         <input type="file" formControlName="image"  [(ngModel)]="addrecetteRequest.image" multiple (change)="selectImage($event)">
+            </div>
+            </div>
+
+
+            <div id="btn">
+                <br/><button type="submit" class="btn btn-primary"  >Publier </button>
+                <button type="reset" class="btn btn-secondary" [disabled]="addrecForm.invalid">Initialiser</button>
+                </div>
+</form>
+</div>

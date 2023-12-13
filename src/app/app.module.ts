@@ -16,6 +16,12 @@ import { RouterModule } from '@angular/router';
 import { FavorisComponent } from './components/favoris/favoris.component';
 import { ProfilComponent } from './components/profil/profil.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { DetailsRecetteUserComponent } from './components/details-recette-user/details-recette-user.component';
+import{CommonModule } from  '@angular/common';
+import { ListRecettesComponent } from './components/list-recettes/list-recettes.component';
+import { AddRecetteComponent } from './components/add-recette/add-recette.component';
+import { MenuUserComponent } from './components/menu-user/menu-user.component';
+import { EditRecetteComponent } from './components/edit-recette/edit-recette.component';
 
 
 @NgModule({
@@ -31,6 +37,11 @@ import { NgxPaginationModule } from 'ngx-pagination';
     NotFoundComponent,
     FavorisComponent,
     ProfilComponent,
+    DetailsRecetteUserComponent,
+    ListRecettesComponent,
+    AddRecetteComponent,
+    MenuUserComponent,
+    EditRecetteComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +50,9 @@ import { NgxPaginationModule } from 'ngx-pagination';
     HttpClientModule,
     FormsModule,
     RouterModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    CommonModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
