@@ -8,6 +8,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class FoodService {
+  currentUserValue: any;
 
   constructor(private http: HttpClient) { }
   getAll(): Observable<Food[]> {
@@ -21,5 +22,13 @@ export class FoodService {
   getFoodById(foodId: string): Observable<Food> {
     return this.http.get<Food>(`http://localhost:3000/api/recette/${foodId}`);
   }
-  
+  addComment(foodId: string, commentText: string): Observable<Food> {
+    //POST 
+    return this.http.post<Food>(`http://localhost:3000/api/recette/${foodId}/comments`, { text: commentText });
+  }
+
+  updateFood(food: Food): Observable<Food> {
+    //PUT
+    return this.http.put<Food>(`http://localhost:3000/api/recette/${food._id}`, food);
+  }
 }
