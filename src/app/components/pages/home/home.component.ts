@@ -11,10 +11,14 @@ import { Food } from 'src/app/shared/models/Food';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  
+  p: number = 1;
+  itemsPerPage:number=4;
+  totalRecettes:number = 0;
+
   foods:Food[]=[];
   constructor(private foodService:FoodService, activatedRoute:ActivatedRoute,private favorisService: FavorisService) {
     let foodObservable:Observable<Food[]>;
+    
     activatedRoute.params.subscribe((params) => {
       if(params.searchTerm)
       foodObservable = this.foodService.getAllFoodsBySearchTerm(params.searchTerm);
@@ -24,6 +28,8 @@ export class HomeComponent implements OnInit {
     foodObservable.subscribe((data:any)=>{
       console.log('Server Foods:', data);
       this.foods =data.recettes || data;
+    
+      this.totalRecettes = this.foods.length;
 
       console.log('Food IDs:', this.foods.map(food => food._id));
     })

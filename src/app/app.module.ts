@@ -15,7 +15,7 @@ import { NotFoundComponent } from './components/partials/not-found/not-found.com
 import { RouterModule } from '@angular/router';
 import { FavorisComponent } from './components/favoris/favoris.component';
 import { ProfilComponent } from './components/profil/profil.component';
-
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 @NgModule({
@@ -38,7 +38,8 @@ import { ProfilComponent } from './components/profil/profil.component';
     ReactiveFormsModule,
     HttpClientModule,
     FormsModule,
-    RouterModule
+    RouterModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

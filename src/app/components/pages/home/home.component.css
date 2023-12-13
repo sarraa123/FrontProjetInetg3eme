@@ -64,6 +64,7 @@ li img {
     font-weight: bold;
     color: whitesmoke;
     padding: 0.5rem;
+    text-align: center;
   }
 
   .product-item-footer {
@@ -93,6 +94,38 @@ li img {
     font-size: 1.1rem;
   }
 
-
-
+  ::ng-deep .pagination {
+    justify-content: center;
+    list-style-type: none;
+    border-radius: 50%;
+  }
+  
+  ::ng-deep .pagination li {
+    display: inline-block;
+    margin: 0 5px;
+    border-radius: 50%;
+  }
+  
+  ::ng-deep .pagination a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    border-radius: 50%;
+    background-color: rgb(193, 193, 193);
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  ::ng-deep .pagination li.active a {
+    background-color: white;
+    border-radius: 50%;
+  }
+  
+  ::ng-deep .pagination a:hover {
+    background-color: grey;
+    color: #fff;
+    border-radius: 50%;
+  }
 

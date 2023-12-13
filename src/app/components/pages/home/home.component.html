@@ -5,7 +5,7 @@
   resetLinkText="Reset Search"
 ></app-not-found>
 <ul>
-  <li *ngFor="let food of foods">
+  <li *ngFor="let food of foods | paginate: { itemsPerPage: itemsPerPage, currentPage: p }; let i = index">
     <div class="content">
       <img [src]="food.image" [alt]="food.nom" [routerLink]="['/food', food._id]" />
       <div class="details">
@@ -17,3 +17,6 @@
     </div>
   </li>
 </ul>
+<div class="d-flex justify-content-center">
+  <pagination-controls (pageChange)="p = $event" class="pagination"  [directionLinks]="true" ></pagination-controls>
+</div>
