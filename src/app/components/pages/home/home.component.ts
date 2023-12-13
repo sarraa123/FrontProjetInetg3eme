@@ -36,7 +36,7 @@ export class HomeComponent implements OnInit {
 
   }
   addFavorite(food: Food) {
-    this.favorisService.toggleFavorite(food);
+    this.favorisService.addToFavorite(food);
   }
 
   isFavorite(food: Food): boolean {

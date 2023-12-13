@@ -37,15 +37,17 @@
       </div>
 
       
-    <textarea [(ngModel)]="newComment" placeholder="Add a comment"></textarea>
-    <button (click)="addComment()">Add Comment</button>
 
-    
-    <div *ngFor="let comment of food.comments">
-      <p>{{ comment.user}} - {{ comment.date}}</p>
-      <p>{{ comment.text }}</p>
+      <textarea [(ngModel)]="newComment" placeholder="Add a comment"></textarea>
+      <button (click)="addComment()">Add Comment</button>
+  
+      
+      <div *ngFor="let comment of food.comments">
+        <p>{{ comment.user}} - {{ comment.date}}</p>
+        <p>{{ comment.text }}</p>
+      </div>
     </div>
-  </div>
+  
 
     </div>
   

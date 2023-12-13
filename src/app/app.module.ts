@@ -12,6 +12,9 @@ import { SignupComponent } from './components/signup/signup.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FooterComponent } from './components/partials/footer/footer.component';
 import { NotFoundComponent } from './components/partials/not-found/not-found.component';
+import { RouterModule } from '@angular/router';
+import { FavorisComponent } from './components/favoris/favoris.component';
+import { ProfilComponent } from './components/profil/profil.component';
 
 
 
@@ -26,13 +29,16 @@ import { NotFoundComponent } from './components/partials/not-found/not-found.com
     SignupComponent,
     FooterComponent,
     NotFoundComponent,
+    FavorisComponent,
+    ProfilComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    RouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,7 +1,8 @@
 export class user {
-    id!: string;
-    username!: string;
+    _id!: string;
+    nom!: string;
     email!: string;
+    motdepasse!:string;
     newComment?: string;
 }
 

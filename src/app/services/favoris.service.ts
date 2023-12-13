@@ -5,13 +5,18 @@ import { Food } from 'src/app/shared/models/Food';
   providedIn: 'root'
 })
 export class FavorisService {
+
   private favorites: Food[] = [];
+
+  constructor() {
+   
+  }
 
   getFavorites(): Food[] {
     return this.favorites;
   }
 
-  toggleFavorite(food: Food): void {
+  addToFavorite(food: Food): void {
     const index = this.favorites.findIndex(fav => fav._id === food._id);
 
     if (index !== -1) {
@@ -26,4 +31,8 @@ export class FavorisService {
   removeFavorite(food: Food): void {
     this.favorites = this.favorites.filter(fav => fav._id !== food._id);
   }
+
+
+
+
 }

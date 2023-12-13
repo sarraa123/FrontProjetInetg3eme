@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http'; // Import HttpClient
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-login',
@@ -12,14 +13,14 @@ export class LoginComponent {
 
   loginForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private router: Router, private http: HttpClient) {
+  constructor(private fb: FormBuilder, private router: Router, private http: HttpClient, private userService :UserService) {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       motdepasse: ['', Validators.required],
     });
   }
 
-  submitForm() {
+  /*submitForm() {
     const formData = this.loginForm.value;
 
     
@@ -32,6 +33,22 @@ export class LoginComponent {
       }, (error) => {
         console.error('Login failed:', error);
       });
+  } */
+
+  submitForm() {
+    const formData = this.loginForm.value;
+
+    this.userService.login(formData).subscribe(
+      (response: any) => {
+        localStorage.setItem('token', response.token);
+        console.log(formData);
+        alert('Connected!');
+        this.router.navigate(['/']);
+      },
+      (error) => {
+        console.error('Login failed:', error);
+      }
+    );
   }
 
   validate_email() {
@@ -41,4 +58,6 @@ export class LoginComponent {
   validate_password() {
     return this.loginForm.get('motdepasse')?.invalid && this.loginForm.controls['motdepasse'].touched;
   }
+
+  
 }

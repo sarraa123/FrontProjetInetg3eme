@@ -1,31 +1,19 @@
+
 <app-search></app-search>
 <app-not-found
-[visible]="!foods || !foods.length"
-resetLinkText="Reset Search">
-</app-not-found>
+  [visible]="!foods || !foods.length"
+  resetLinkText="Reset Search"
+></app-not-found>
 <ul>
-    <li *ngFor="let food of foods">
-      <a [routerLink]="['/food', food._id]">
-      <img [src]="food.image" [alt]="food.nom"/>
-      <div class="content">
-      <div class="name">{{food.nom}}</div>
-    
-  <!--
-    <span >
-      <button  class="favorite" title="Add to Favoris"><i class="fa-regular fa-heart"></i></button>
-     </span>
-  -->   
-  <button class="favorite" title="Add to Favoris" (click)="addFavorite(food)">
-    <i [ngClass]="{'fa-regular ': !isFavorite(food), 'fa-solid': isFavorite(food), 'fa-heart': true, 'not': !isFavorite(food)}"></i>
-</button>
-        
-      <div class="product-item-footer">
-      <div class="ingredients">
-        <span *ngFor="let ingredient of food.ingredients">{{ingredient}}</span>
+  <li *ngFor="let food of foods">
+    <div class="content">
+      <img [src]="food.image" [alt]="food.nom" [routerLink]="['/food', food._id]" />
+      <div class="details">
+        <button class="favorite" title="Add to Favoris" (click)="addFavorite(food)">
+          <i [ngClass]="{'fa-regular ': !isFavorite(food), 'fa-solid': isFavorite(food), 'fa-heart': true, 'not': !isFavorite(food)}"></i>
+      </button>
+        <div class="name">{{food.nom}}</div>
       </div>
-      <div class="preparation">{{food.instructions}}</div>
-      </div>
-      </div>
-    </a>
-    </li>
+    </div>
+  </li>
 </ul>

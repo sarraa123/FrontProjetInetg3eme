@@ -6,32 +6,31 @@ ul{
     padding: 0;
 }
 
-li a{
-    height: 22.5rem;
-    width: 20rem;
-    border: 1px solid whitesmoke;
-    border-radius: 1rem;
-    margin: 0.5rem;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    color: #e72929;
+li {
+  height: 22.5rem;
+  width: 20rem;
+  border: 1px solid whitesmoke;
+  border-radius: 1rem;
+  margin: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 }
 
-li a:hover{
-    opacity: 0.9;
-    cursor: pointer;
+li:hover {
+  opacity: 0.9;
+  cursor: pointer;
 }
-li a img{
-    object-fit: cover;
-    height: 16rem;
+.content {
+  position: relative;
 }
-.content{
-    margin-top: 0.3rem;
-    padding: 0.5rem 1rem;
-    position: relative;
-    height: 7rem;
+
+li img {
+  object-fit: cover;
+  height: 16rem;
+  width: 100%; /* Remplir la largeur du conteneur */
 }
+
 
 
 .favorite{
@@ -51,16 +50,25 @@ li a img{
     border: none;
   }
   .favorite.active {
-    color: #fff; /* Changez la couleur de fond active ici */
+    color: #fff; 
   }
   
-  
-  .product-item-footer{
+  .details {
     display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
+    flex-direction: column;
+    margin-top: 0.3rem;
   }
-  
+
+  .name {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: whitesmoke;
+    padding: 0.5rem;
+  }
+
+  .product-item-footer {
+    margin-top: 0.3rem;
+  }
   .ingredients{
     flex: 9;
   }

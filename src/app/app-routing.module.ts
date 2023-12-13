@@ -5,6 +5,7 @@ import { FoodPageComponent } from './components/pages/food-page/food-page.compon
 import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { FavorisComponent } from './components/favoris/favoris.component';
+import { ProfilComponent } from './components/profil/profil.component';
 
 const routes: Routes = [
   {path:'',component:HomeComponent},
@@ -13,6 +14,7 @@ const routes: Routes = [
   {path:'log-in', title:'log-in',component:LoginComponent},
   {path:'sign-up', title:'sign-up',component:SignupComponent},
   {path:'favoris', title:'favoris',component:FavorisComponent},
+  {path:'profil', title:'profil',component:ProfilComponent},
 
 ];
 
