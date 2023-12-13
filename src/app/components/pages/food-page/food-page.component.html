@@ -7,11 +7,22 @@
     <img [src]="food.image" [alt]="food.nom"/>
   
     <div class="details">
-      <div class="header">
+      <div >
         <span class="name">
           {{food.nom}}
         </span>
-        <span class="favorite {{food.favorite? '': 'not'}}">❤</span>
+  <!--<span class="favorite {{food.favorite? '': 'not'}}">❤</span>-->      
+  <span >
+   <!--
+    <button class="favorite" title="Add to Favoris" (click)="addFavorite()">
+      <i [ngClass]="{'fa-regular': !food.favorite, 'fa-solid': food.favorite, 'fa-heart': true, 'not': !food.favorite}"></i>
+    </button>
+   --> 
+
+    <button class="favorite" title="Add to Favoris" (click)="addFavorite()">
+      <i [ngClass]="{'fa-regular ': !isFavorite(), 'fa-solid': isFavorite(), 'fa-heart': true, 'not': !isFavorite()}"></i>
+    </button>
+   </span>
       </div>
       <div class="origins">
         <span *ngFor="let origin of food.ingredients">

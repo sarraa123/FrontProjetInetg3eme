@@ -1,9 +1,13 @@
 <div class="dashboard-container">
 <header>
     <div class="container">
+
       <a routerLink="/" class="logo" >Glow Gourmet!</a>
       <nav>
         <ul>
+          <li>
+            <a [routerLink]="['/favoris']" class="overplay"   title="Add to Favoris"><i class="fa-regular fa-heart"></i></a>
+          </li>
             <li>
             <a [routerLink]="['/log-in']">S'identifier</a>
             </li>

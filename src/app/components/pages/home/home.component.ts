@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
+import { FavorisService } from 'src/app/services/favoris.service';
 import { FoodService } from 'src/app/services/food.service';
 import { Food } from 'src/app/shared/models/Food';
 
@@ -12,7 +13,7 @@ import { Food } from 'src/app/shared/models/Food';
 export class HomeComponent implements OnInit {
   
   foods:Food[]=[];
-  constructor(private foodService:FoodService, activatedRoute:ActivatedRoute) {
+  constructor(private foodService:FoodService, activatedRoute:ActivatedRoute,private favorisService: FavorisService) {
     let foodObservable:Observable<Food[]>;
     activatedRoute.params.subscribe((params) => {
       if(params.searchTerm)
@@ -34,4 +35,12 @@ export class HomeComponent implements OnInit {
     
 
   }
+  addFavorite(food: Food) {
+    this.favorisService.toggleFavorite(food);
+  }
+
+  isFavorite(food: Food): boolean {
+    return this.favorisService.getFavorites().some(fav => fav._id === food._id);
+  }
+  
 }

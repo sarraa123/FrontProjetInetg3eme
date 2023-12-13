@@ -12,6 +12,7 @@ import { SignupComponent } from './components/signup/signup.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FooterComponent } from './components/partials/footer/footer.component';
 import { NotFoundComponent } from './components/partials/not-found/not-found.component';
+import { FavorisComponent } from './components/favoris/favoris.component';
 
 
 
@@ -26,6 +27,7 @@ import { NotFoundComponent } from './components/partials/not-found/not-found.com
     SignupComponent,
     FooterComponent,
     NotFoundComponent,
+    FavorisComponent,
   ],
   imports: [
     BrowserModule,

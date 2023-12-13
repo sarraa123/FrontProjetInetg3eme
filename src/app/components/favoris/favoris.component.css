@@ -1,3 +1,6 @@
+h2{
+    color: white;
+}
 ul{
     display: flex;
     justify-content: center;
@@ -50,9 +53,7 @@ li a img{
     background: none;
     border: none;
   }
-  .favorite.active {
-    color: #fff; /* Changez la couleur de fond active ici */
-  }
+  
   
   
   .product-item-footer{

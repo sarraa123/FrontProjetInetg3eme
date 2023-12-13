@@ -1,0 +1,26 @@
+<h2>Your Favorite Recipes</h2>
+  <ul>
+    <li *ngFor="let recipe of favoriteRecipes">
+      <a [routerLink]="['/food', recipe._id]">
+      <img [src]="recipe.image" [alt]="recipe.nom"/>
+      <div class="content">
+      <div class="name">{{recipe.nom}}</div>
+    
+     <span >
+        <button class="favorite" title="Remove from Favoris" (click)="removeFavorite(recipe)">
+            <i [ngClass]="{'fa-solid fa-heart': true}"></i>
+          </button>
+     </span>
+        
+      <div class="product-item-footer">
+      <div class="ingredients">
+        <span *ngFor="let ingredient of recipe.ingredients">{{ingredient}}</span>
+      </div>
+      <div class="preparation">{{recipe.instructions}}</div>
+      </div>
+      </div>
+    </a>
+    </li>
+</ul>
+
+

@@ -9,10 +9,16 @@ resetLinkText="Reset Search">
       <img [src]="food.image" [alt]="food.nom"/>
       <div class="content">
       <div class="name">{{food.nom}}</div>
-
-      <span class="favorite {{food.favorite?'':'not'}}">
-        ❤
-      </span>
+    
+  <!--
+    <span >
+      <button  class="favorite" title="Add to Favoris"><i class="fa-regular fa-heart"></i></button>
+     </span>
+  -->   
+  <button class="favorite" title="Add to Favoris" (click)="addFavorite(food)">
+    <i [ngClass]="{'fa-regular ': !isFavorite(food), 'fa-solid': isFavorite(food), 'fa-heart': true, 'not': !isFavorite(food)}"></i>
+</button>
+        
       <div class="product-item-footer">
       <div class="ingredients">
         <span *ngFor="let ingredient of food.ingredients">{{ingredient}}</span>
