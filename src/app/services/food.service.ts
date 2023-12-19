@@ -10,7 +10,12 @@ import { Observable } from 'rxjs';
 export class FoodService {
   currentUserValue: any;
   private url="http://localhost:3000/api/recette"
+
+
+
+
   constructor(private http: HttpClient) { }
+  
   getAll(): Observable<Food[]> {
     return this.http.get<Food[]>('http://localhost:3000/api/recette');
   }

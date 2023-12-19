@@ -18,7 +18,7 @@ export class EditRecetteComponent {
     instructions:'',
     //image: new File([], 'defaultFileName')  
     image:  new File([], 'defaultFileName')  ,
-    favorite: false, 
+   // favorite: false, 
   };
   constructor(private formBuilder:FormBuilder,private foodservice:FoodService,private router:Router){}
   ngOnInit(): void {

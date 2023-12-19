@@ -16,9 +16,9 @@ export class AddRecetteComponent implements OnInit{
     nom:'',
     ingredients:[],
     instructions:'',
-    favorite: false, 
     //image: new File([], 'defaultFileName')  
     image:  new File([], 'defaultFileName')  ,
+    
   };
   constructor(private formBuilder:FormBuilder,private foodservice:FoodService,private router:Router){}
   ngOnInit(): void {
@@ -29,9 +29,7 @@ export class AddRecetteComponent implements OnInit{
         instructions:['',Validators.required],
         image:[''],
         
-        
        } );
-       
   }
 
   
@@ -55,7 +53,7 @@ export class AddRecetteComponent implements OnInit{
        .subscribe({
         next:(response)=>{
           alert('Recette a été ajouté avec succés!');
-        this.router.navigate(['ListRecettes']);
+          //this.router.navigate(['listrecettes']);
         },
         error: (error) => {
           console.error('Error adding recette:', error);
