@@ -16,7 +16,7 @@ export class SignupComponent implements OnInit  {
   email:string="";
   motdepasse:string="";
 
-  constructor(private http: HttpClient,private formBuilder: FormBuilder, private router: Router, private userService :UserService) {
+  constructor(private formBuilder: FormBuilder, private router: Router, private userService :UserService) {
     
     this.myForm = this.formBuilder.group({
       nom: ['', Validators.required],

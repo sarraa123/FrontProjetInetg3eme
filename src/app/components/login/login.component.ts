@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http'; // Import HttpClient
 import { UserService } from 'src/app/services/user.service';
+import { user } from 'src/app/shared/models/user';
 
 @Component({
   selector: 'app-login',
@@ -10,10 +11,13 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
+  currentUser!: user ;
+  
 
+  session:any;
   loginForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private router: Router, private http: HttpClient, private userService :UserService) {
+  constructor(private fb: FormBuilder, private router: Router,  private userService :UserService) {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       motdepasse: ['', Validators.required],
@@ -41,9 +45,10 @@ export class LoginComponent {
     this.userService.login(formData).subscribe(
       (response: any) => {
         localStorage.setItem('token', response.token);
+        this.saveData(response.user);
         console.log(formData);
         alert('Connected!');
-        this.router.navigate(['/']);
+        this.router.navigate(['/AddRecette']);
       },
       (error) => {
         console.error('Login failed:', error);
@@ -58,6 +63,17 @@ export class LoginComponent {
   validate_password() {
     return this.loginForm.get('motdepasse')?.invalid && this.loginForm.controls['motdepasse'].touched;
   }
-
+  /*saveData(){
+    let data :Partial<user> = {
+      nom: this.currentUser.nom,
+      email: this.currentUser.email,
+      motdepasse:this.currentUser.motdepasse,
+    }
+    localStorage.setItem('session',JSON.stringify(data));
+  
+  } */
+  saveData(user: user) {
+    localStorage.setItem('session', JSON.stringify(user));
+  }
   
 }

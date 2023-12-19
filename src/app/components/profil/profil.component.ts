@@ -11,6 +11,8 @@ export class ProfilComponent implements OnInit {
   currentUser!: user ;
   isEditMode: boolean = false;
 
+  session:any;
+
   constructor(private userService: UserService) {
     this.currentUser = new user();
   }
@@ -18,6 +20,18 @@ export class ProfilComponent implements OnInit {
   ngOnInit(): void {
     this.loadUserProfile();
   }
+
+
+
+
+loadData(){
+  let data:any=localStorage.getItem('session');
+  this.session=JSON.parse(data);
+}
+
+
+
+
 
   loadUserProfile() {
     this.userService.getUserById(this.currentUser).subscribe(
@@ -36,7 +50,6 @@ export class ProfilComponent implements OnInit {
 
   updateProfile() {
     if (this.currentUser) {
-      // Utilisez votre méthode de service pour mettre à jour le profil du user
       this.userService.updateProfile(this.currentUser).subscribe(
         (updatedUser: user) => {
           this.currentUser = updatedUser;
@@ -48,4 +61,5 @@ export class ProfilComponent implements OnInit {
       );
     }
   }
+  
 }

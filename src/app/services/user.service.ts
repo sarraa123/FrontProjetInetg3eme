@@ -7,17 +7,17 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class UserService {
-  private currentUserSubject: BehaviorSubject<user>;
-  public currentUser: Observable<user>;
+ /* private currentUserSubject: BehaviorSubject<user>;
+  public currentUser: Observable<user>; */
 
   constructor(private http: HttpClient) {
-    this.currentUserSubject = new BehaviorSubject<user>(JSON.parse(localStorage.getItem('currentUser') || '{}'));
-    this.currentUser = this.currentUserSubject.asObservable();
+ /*   this.currentUserSubject = new BehaviorSubject<user>(JSON.parse(localStorage.getItem('currentUser') || '{}'));
+    this.currentUser = this.currentUserSubject.asObservable(); */
   }
 
-  public get currentUserValue(): user {
+/*  public get currentUserValue(): user {
     return this.currentUserSubject.value;
-  }
+  }  */
 
   /*login(user: user) {
     localStorage.setItem('currentUser', JSON.stringify(user));
@@ -42,8 +42,23 @@ export class UserService {
           localStorage.setItem('currentUser', JSON.stringify(response.user));
         })
       );
-  } */
+  } 
 
+  login(user: user): Observable<user> {
+    return this.http.post<user>('http://localhost:3000/api/user/login', user)
+      .pipe(
+        tap((response: any) => {
+          this.handleLoginResponse(response);
+        })
+      );
+  }
+  
+  private handleLoginResponse(response: any): void {
+    localStorage.setItem('token', response.token);
+    localStorage.setItem('currentUser', JSON.stringify(response.user));
+    this.currentUserSubject.next(response.user);
+  }
+ */
   updateProfile(user: user): Observable<user> {
     return this.http.put<user>(`http://localhost:3000/api/user/${user._id}`, user);
   }
@@ -67,5 +82,5 @@ export class UserService {
   // Méthode pour récupérer l'ID de l'utilisateur connecté
   getLoggedInUserId(): string | null {
     return this.loggedInUserId;
-  }
+  } 
 }
